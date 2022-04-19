@@ -1,0 +1,32 @@
+{% extends 'main.html' %}
+{% block content %}
+    <div style="height: 200px">
+    </div>
+    <div class="login-form">
+        <form>
+            <h1>Login</h1>
+            <div class="content">
+                <div class="input-field">
+                    <input type="text" placeholder="User" autocomplete="nope">
+                </div>
+                <div class="input-field">
+                    <input type="password" placeholder="Password" autocomplete="new-password">
+                </div>
+                <a href="#" class="link">Forgot Your Password?</a>
+            </div>
+        </form>
+        <div class="action">
+            <button id="register-button">Register</button>
+            <button>Sign in</button>
+        </div>
+    </div>
+    <!-- partial -->
+    <script>
+
+        $('#register-button').click(function () {
+            window.location.href = "/register"
+        });
+
+    </script>
+
+{% endblock content %}
