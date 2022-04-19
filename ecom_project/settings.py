@@ -127,7 +127,8 @@ USE_TZ = True
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') # requires collectstatic command
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-
+MEDIA_URL = "/image/download/"
+MEDIA_ROOT = BASE_DIR
 # It’s often the case that there will be multiple directories
 # with static files within a project so Python brackets [] , 
 # which denote a list 120 , are typically added here to 

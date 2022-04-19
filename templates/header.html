@@ -1,33 +1,138 @@
-<!-- Header -->
-<header class="">
-    <nav class="navbar navbar-expand-lg">
-        <div class="container">
-            <a class="navbar-brand" href="{% url 'home' %}"><h2>Sixteen <em>Clothing</em></h2></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'home' %}">Home
-                            <span class="sr-only">(current)</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'products' %}">Our Products</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'about' %}">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'login' %}">Login</a>
-                    </li>
-                </ul>
+<header id="header" class="header-serviceV2 scollView">
+    <div class="home-menu">
+        <nav class="navbar-core navbar-white navbar-v1 headroom headroom--not-bottom headroom--pinned headroom--top">
+            <div class="s-wrapper s-wrapper-service">
+                <div class="container">
+                    <div class="s-inner clearfix">
+                        <div class="pull-left nav-left">
+                            <div class="logo">
+                                <a href="{% url 'home' %}">
+                                    <h1>Technology store</h1>
+                                </a>
+                            </div>
+                        </div>
+                        <button class="hamburger has-animation hamburger--collapse" id="toggle-icon">
+                                    <span class="hamburger-box">
+                                    <span class="hamburger-inner"></span>
+                                    </span>
+                        </button>
+                        <div class="pull-right nav-right">
+                            <div class="navbar-main">
+                                <ul class="navbar-menu">
+                                    <li class="dropdown">
+                                        <a href="/trang-chu" class="active-menu">Home</a>
+                                    </li>
+                                    <li class="dropdown productMN">
+                                        <a href="#" class="active-menu">Mobile Phone</a>
+                                        <i class="fa fa-angle-down"></i>
+                                        <div class="box-menu">
+                                            <div class="row">
+
+                                                <div class="col-md-6 ">
+                                                    <div class=" slideSort">
+                                                        <h2 class="slider-left-title"
+                                                            style=" font-size: 20px;color: #c19b76;font-family: serif;">
+                                                            Các loại sản phẩm</h2>
+                                                        <br>
+                                                        <ul class="slide-left-list">
+                                                            <li><h3><a
+                                                                    href="/page-san-pham?name=son-moi&page=1&limit=9">Son
+                                                                môi</a></h3></li>
+                                                            <br>
+                                                            <li><h3><a
+                                                                    href="/page-san-pham?name=mascara&page=1&limit=9">Mascara</a>
+                                                            </h3></li>
+                                                            <br>
+                                                            <li><h3><a
+                                                                    href="/page-san-pham?name=kem-phan&page=1&limit=9">Kem
+                                                                phủ - phấn</a></h3></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 ">
+                                                    <div class="box-slider-left slideNewproduct slideNewproduct2">
+                                                        <h2 class="slider-left-title"
+                                                            style=" font-size: 20px;color: #c19b76;font-family: serif;margin-bottom: 10px">
+                                                            Sản phẩm bán chạy nhất</h2>
+                                                        <div class="box-slideNewproduct">
+                                                            <div class="slideNewproduct-item slideNewproduct-img">
+                                                                <a href="/san-pham?id=21&name=gluwhite-vn"><img
+                                                                        src="../static/images/gluwhite-vn.jpg"
+                                                                        alt="product1"
+                                                                        class="img-responsive"></a>
+                                                            </div>
+                                                            <div class="slideNewproduct-item slideNewproduct-text">
+                                                                <h4><a href="/san-pham?id=21&name=gluwhite-vn">Viên sủi
+                                                                    trắng da Gluwhite</a></h4>
+                                                                <p class="slideProduct-price"
+                                                                   style="font-size: 16px;margin-top: 0;">890,000 đ</p>
+                                                            </div>
+                                                        </div>
+                                                        <br>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    {#                                    <security:authorize access="isAnonymous()">#}
+                                    <li class="dropdown">
+                                        <a href="/dang-nhap" class="active-menu">Login</a>
+                                    </li>
+                                    {#                                    </security:authorize>#}
+                                    <li class="dropdown" id="cart-parent">
+                                        <a href="/gio-hang"><img src="../static/images/cart.png">
+                                            {#                                            <c:if test="${not empty carts && sessionScope.carts.size()!= 0}">#}
+                                            {#                                                <div class="cart-alert">#}
+                                            {#                                                        <span>#}
+                                            {#                                                                ${sessionScope.carts.size()}#}
+                                            {#                                                        </span>#}
+                                            {#                                                </div>#}
+                                            {#                                            </c:if>#}
+                                            {#                                            <c:if test="${empty carts || sessionScope.carts.size() == 0}">#}
+                                            {#                                                <div>#}
+                                            {#                                                        <span>#}
+                                            {#                                                                ${sessionScope.carts.size()}#}
+                                            {#                                                        </span>#}
+                                            {#                                                </div>#}
+                                            {#                                            </c:if>#}
+                                        </a>
+                                    </li>
+                                    {#                                    <security:authorize access="isAuthenticated()">#}
+                                    {#                                        <li>#}
+                                    {#                                            <ul class="nav nav-pills" style="margin-top: 20px;margin-left: 50px;">#}
+                                    {#                                                <li class="dropdown">#}
+                                    {#                                                    <a class="dropdown-toggle"#}
+                                    {#                                                       data-toggle="dropdown"#}
+                                    {#                                                       href="#"#}
+                                    {#                                                       style="border-radius: 20px; height: 40px; width: 40px; background-color: rosybrown; text-align: center">#}
+                                    {#                                                        <%=SecurityUtils.getPrincipal().getFullName().charAt(SecurityUtils.getPrincipal().getFullName().lastIndexOf(" ") + 1)%>#}
+                                    {#                                                        <b class="caret"></b>#}
+                                    {#                                                    </a>#}
+                                    {#                                                    <ul class="dropdown-menu">#}
+                                    {#                                                        <a href="#"> - Thông tin cá nhân</a>#}
+                                    {#                                                        <br>#}
+                                    {#                                                        <a href="/j_spring_security_logout"> - Đăng xuất</a>#}
+                                    {#                                                    </ul>#}
+                                    {#                                                </li>#}
+                                    {#                                            </ul>#}
+                                    {#                                        </li>#}
+                                    {#                                    </security:authorize>#}
+                                </ul>
+                            </div>
+                            {#                            <div class="search2">#}
+                            {#                                    <ul>#}
+                            {#                                        <li>#}
+                            {#                                            <input type="text" id="search" placeholder="Search">#}
+                            {#                                        </li>#}
+                            {#                                        <li>#}
+                            {#                                            <div class="fa fa-search " id="search-button"></div>#}
+                            {#                                        </li>#}
+                            {#                                    </ul>#}
+                            {#                                </div>#}
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </div>
 </header>
