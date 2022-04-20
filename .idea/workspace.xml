@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ffc8de66-312a-48de-857e-c0e92f3595e1" name="Changes" comment="" />
+    <list default="true" id="ffc8de66-312a-48de-857e-c0e92f3595e1" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce/services/laptop_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/services/laptop_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/js/jquery.jqGrid.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/js/jquery.jqGrid.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,16 +40,16 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/truong/Documents/subject_ptit/he-thong-thuong-mai-dien-tu/django-ecommerce"
+    "last_opened_file_path": "/home/truong/Documents/subject_ptit/he-thong-thuong-mai-dien-tu/django-ecommerce/ecommerce/services"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/static/images" />
       <recent name="$PROJECT_DIR$/ecommerce/services" />
-      <recent name="$PROJECT_DIR$/ecommerce/models" />
-      <recent name="$PROJECT_DIR$/templates/common" />
-      <recent name="$PROJECT_DIR$/static/js" />
+      <recent name="$PROJECT_DIR$/templates" />
+      <recent name="$PROJECT_DIR$/static" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/static/images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/static" />
@@ -100,7 +107,8 @@
       <workItem from="1650355125573" duration="12202000" />
       <workItem from="1650423148876" duration="5977000" />
       <workItem from="1650432004328" duration="4002000" />
-      <workItem from="1650446063467" duration="2033000" />
+      <workItem from="1650446063467" duration="3376000" />
+      <workItem from="1650462078920" duration="10420000" />
     </task>
     <servers />
   </component>

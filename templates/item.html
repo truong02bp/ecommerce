@@ -1,0 +1,162 @@
+{% extends 'main.html' %}
+
+{% block content %}
+    {% include 'common/pagination.html' %}
+    <form action="{% url 'laptop-page' %}?producer={{ model.producer }}&name={{ model.name }}&page={{ model.page }}&limit={{ model.limit }}&sort={{ model.sort }}"
+          id="formSubmit" method="GET">
+        <section class="page-shop-slidebar" style="    padding-top: 60px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-11 col-md-push-2">
+                        <h3 style="font-size: 18px;font-weight: bold;margin-top: 30px;margin-bottom: 10px">Our
+                            product</h3>
+                        <div class="box-fitter clearfix">
+                            <div class="box-fitter-right">
+                                <ul>
+                                    <li>Sort by :</li>
+                                    <li>
+                                        <div class="dropdown filterDrop">
+                                            <a class=" dropdown-toggle" type="button" data-toggle="dropdown"
+                                               aria-expanded="true">
+                                                Price {{ model.sort }}
+                                                <span class="fa fa-angle-down"></span>
+                                            </a>
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <a href="{% url 'laptop-page' %}?producer={{ model.producer }}&name={{ model.name }}&page=1&limit=8&sort=asc">Price
+                                                        asc</a></li>
+                                                <li>
+                                                    <a href="{% url 'laptop-page' %}?producer={{ model.producer }}&name={{ model.name }}&page=1&limit=8&sort=desc">Price
+                                                        desc</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="row">
+                            {% for laptop in laptops %}
+                                <div class="col-md-3 col-sm-6 col-xs-12 wow animate__backInUp"
+                                     data-wow-duration="0.5s">
+                                    <div class="product-item productG "
+                                         style="margin-top: 0;     min-height: 360px;display: flex;flex-direction: column;align-items: center;">
+                                        <div class="product-image sizeImg"
+                                             style="max-width: 270px;max-height: 300px;float: unset;position: relative;width: 100%;height: 100%">
+                                            <img src="http://localhost:8000/image/download/{{ laptop.item.image }}"
+                                                 alt="product"
+                                                 class="product-img-first img-responsive"
+                                                 style="max-width: 270px; width: 100%; height: 240px; object-fit: cover;">
+                                            <div class="arrIcon"></div>
+                                            <div class="box-posi">-{{ laptop.item.discount }}%</div>
+                                            <div class="arrIcon2">
+                                                <ul>
+                                                    <li>
+                                                        <div class="cart-button" data-id="${item.id}">
+                                                            <i class="la la-shopping-cart"></i>
+                                                        </div>
+                                                    </li>
+                                                    <li style="margin-left: 6px;margin-right: 6px;">
+                                                        <a href="{% url 'laptop' laptop.id %}">
+                                                            <i class="la la-eye"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="product-text clearfix">
+                                            <div class="product-left pull-left"
+                                                 style="padding-top: 20px;padding-bottom: 15px;">
+                                                <div class="product-name">
+                                                    <h3 class="product-title">
+                                                        <a href="{% url 'laptop' laptop.id %}"
+                                                           class="color-setting">{{ laptop.item.name }}</a>
+                                                    </h3>
+                                                </div>
+                                                <div class="product-price">
+                                                    {% if 0 != laptop.item.discount %}
+                                                        <span class="price1">{{ laptop.item.price_before }}</span>
+                                                    {% endif %}
+                                                    <span class="price">{{ laptop.item.price }}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <center>
+                            <ul class="pagination" id="pagination"></ul>
+                        </center>
+                        <input type="hidden" name="page" id="page">
+                        <input type="hidden" name="limit" id="limit">
+                        <input type="hidden" name="name" id="name">
+                        <input type="hidden" name="producer" id="producer">
+                        <input type="hidden" name="sort" id="sort">
+                    </div>
+                    <div class="col-md-1 col-md-pull-11">
+                        <div class=" slideSort">
+                            <h3 class="slider-left-title">Producer</h3>
+                            <ul class="slide-left-list">
+                                {% for producer in producers %}
+                                    <li>
+                                        <a href="{% url 'laptop-page' %}?producer={{ producer.name }}&page=1&limit=8">{{ producer.name }}</a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="lineAbout" style="width: 100%;height: 1px"></div>
+                    <div class="box-slider-left slideNewproduct slideNewproduct2">
+                        <h3 class="slider-left-title">SELLING PRODUCTS</h3>
+                        {% for product in most_products %}
+                            <div class="box-slideNewproduct">
+                                <div class="slideNewproduct-item slideNewproduct-img">
+                                    <a href="{% url 'laptop' product.id %}"><img
+                                            src="http://localhost:8000/image/download/{{ product.item.image }}"
+                                            alt="product1"
+                                            class="img-responsive"/></a>
+                                </div>
+                                <div class="slideNewproduct-item slideNewproduct-text">
+                                    <h5><a href="{% url 'laptop' product.id %}">{{ product.item.name }}</a></h5>
+                                    <p class="slideProduct-price">{{ product.item.price }}</p>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </section>
+    </form>
+    <script src="../static/assets/js/jquery.min.map"></script>
+    <script type="text/javascript">
+        $('#pagination').find("li.first").remove();
+        $('#pagination').find("li.last").remove();
+        var totalPage =
+            {{ model.total_page }}
+            console.log(totalPage)
+        var currentPage = {{ model.page }};
+        console.log(currentPage)
+        var limit = {{ model.limit }};
+
+        $(function () {
+            window.pagObj = $('#pagination').twbsPagination({
+                startPage: currentPage,
+                visiblePages: 3,
+                totalPages: totalPage,
+                onPageClick: function (event, page) {
+                    if (currentPage != page) {
+                        $('#page').val(page);
+                        $('#name').val("{{ model.name }}");
+                        $('#producer').val("{{ model.producer }}");
+                        $('#sort').val("{{ model.sort }}");
+                        $('#limit').val(8);
+                        $('#formSubmit').submit();
+                    }
+                }
+            }).on('page', function (event, page) {
+                console.info(page + ' (from event listening)');
+            });
+        });
+    </script>
+    <script src="../static/custom.js" type="text/javascript"></script>
+{% endblock %}

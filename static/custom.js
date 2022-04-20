@@ -124,7 +124,7 @@ $('#search-button').click(function () {
         success: function (value)
         {
             if (value > 0)
-                window.location.href = "/page-tim-kiem?itemName="+itemName+"&page=1&limit=9";
+                window.location.href = "/page-tim-kiem?itemName="+itemName+"&page=1&limit=8";
             else
                 alert("Không tìm thấy sản phẩm nào");
         }

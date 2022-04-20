@@ -23,13 +23,13 @@
                                         <a href="{% url 'home' %}" class="active-menu">Home</a>
                                     </li>
                                     <li class="dropdown productMN">
-                                        <a href="{% url 'laptop-page' %}" class="active-menu">Laptop</a>
+                                        <a href="{% url 'laptop-page'%}?page=1&limit=8" class="active-menu">Laptop</a>
                                     </li>
                                     <li class="dropdown productMN">
                                         <a href="#" class="active-menu">Book</a>
                                     </li>
                                     <li class="dropdown">
-                                        <a href="#" class="active-menu">Login</a>
+                                        <a href="{% url 'login' %}" class="active-menu">Login</a>
                                     </li>
                                     {#                                    </security:authorize>#}
                                     <li class="dropdown" id="cart-parent">

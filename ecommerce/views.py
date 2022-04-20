@@ -1,3 +1,5 @@
+import math
+
 from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -5,6 +7,7 @@ from rest_framework.response import Response
 from ecommerce.serializers import UserSerializer
 from ecommerce.services.book_service import BookService
 from ecommerce.services.laptop_service import LaptopService
+from ecommerce.services.producer_service import ProducerService
 
 
 def home(request):
@@ -25,10 +28,26 @@ def laptop_detail(request, id=None):
 
 
 def laptop_page(request):
+    sort = request.GET.get('sort')
+    page = int(request.GET.get('page'))
+    limit = int(request.GET.get('limit'))
+    producer = request.GET.get('producer')
+    name = request.GET.get('name')
+    if sort is None:
+        sort = ''
     laptop_service = LaptopService.get_instance()
-    laptops = laptop_service.find_all()
-    context = {'laptops': laptops}
-    return render(request, 'laptop.html', context)
+    laptops = laptop_service.find_by_producer_and_name(producer, name, page, limit, sort)
+    most_products = laptop_service.find_limit(5)
+    producers = ProducerService.get_instance().find_all()
+    total_page = int(math.ceil(laptop_service.count() / limit))
+    model = {'sort': sort, 'page': page, 'limit': limit, 'total_page': total_page}
+    if producer is not None:
+        model['producer'] = producer
+    if name is not None:
+        model['name'] = name
+    print(total_page)
+    context = {'laptops': laptops, 'producers': producers, 'most_products': most_products, 'model': model}
+    return render(request, 'item.html', context)
 
 
 def book_detail(request, id=None):
