@@ -4,6 +4,7 @@
 
     <div class="the-garden">
     <div class="container" style="width: 80%;">
+        <div style="height: 30px"></div>
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
             <ol class="carousel-indicators">
@@ -15,26 +16,21 @@
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
                 <div class="item active">
-                    <img src="../static/images/abc.jpg" alt="Los Angeles" style="width:100%;">
+                    <img src="../static/images/banner.jpg" alt="Laptop" style="width:100%; height: 50%">
                     <div class="carousel-caption">
-                        <h3>Los Angeles</h3>
-                        <p>LA is always so much fun!</p>
+                        <h3>Laptop</h3>
                     </div>
                 </div>
-
                 <div class="item">
-                    <img src="../static/images/abc.jpg" alt="Chicago" style="width:100%;">
+                    <img src="../static/images/banner_2.jpg" alt="Laptop" style="width:100%; height: 50%">
                     <div class="carousel-caption">
-                        <h3>Chicago</h3>
-                        <p>Thank you, Chicago!</p>
+                        <h3>Laptop</h3>
                     </div>
                 </div>
-
                 <div class="item">
-                    <img src="../static/images/abc.jpg" alt="New York" style="width:100%;">
+                    <img src="../static/images/book_banner.jpg" alt="Book" style="width:100%; height: 50%; max-height: 445px">
                     <div class="carousel-caption">
-                        <h3>New York</h3>
-                        <p>We love the Big Apple!</p>
+                        <h3>Book</h3>
                     </div>
                 </div>
 
@@ -55,261 +51,126 @@
         <div class="container">
             <div class="latest-product-title title-text">
                 <h3 class="wow animate__backInUp" data-wow-duration="0.5s"
-                    style="font-size: 25px;color: #c19b76;font-family: serif;">Một số sản phẩm của chúng tôi</h3>
+                    style="font-size: 25px;color: #c19b76;font-family: serif;">Our product</h3>
             </div>
+
             <div class="detail-navtab latest-product-tab">
                 <div class="tab-content detail-tab">
+                    <div class="latest-product-title title-text">
+                        <h3 class="wow animate__backInUp" data-wow-duration="0.5s"
+                            style="font-size: 25px;color: #c19b76;font-family: serif;">Laptop</h3>
+                    </div>
                     <div id="all" class="tab-pane fade  active in">
                         <div class="row product-gird">
-                            {#                            <c:forEach var="item" items="${items}">#}
-                            {#                                <div class="col-md-3 col-sm-6 col-xs-12 wow animate__backInUp" data-wow-duration="0.5s">#}
-                            {#                                    <div class="product-item productG "#}
-                            {#                                         style="margin-top: 0;     min-height: 360px;display: flex;flex-direction: column;align-items: center;">#}
-                            {#                                        <div class="product-image sizeImg"#}
-                            {#                                             style="max-width: 270px;max-height: 300px;float: unset;position: relative;width: 100%;height: 100%">#}
-                            {#                                            <img src="../static/images/${item.code}.jpg" alt="product"#}
-                            {#                                                 class="product-img-first img-responsive"#}
-                            {#                                                 style="max-width: 270px; width: 100%; height: 240px; object-fit: cover;">#}
-                            {#                                            <div class="arrIcon"></div>#}
-                            {#                                            <div class="box-posi">-${item.sale}%</div>#}
-                            {#                                            <div class="arrIcon2">#}
-                            {#                                                <ul>#}
-                            {#                                                    <li>#}
-                            {#                                                        <div class="cart-button" data-id="${item.id}">#}
-                            {#                                                            <i class="la la-shopping-cart"></i>#}
-                            {#                                                        </div>#}
-                            {#                                                    </li>#}
-                            {#                                                    <li style="margin-left: 6px;margin-right: 6px;">#}
-                            {#                                                        <a href="/san-pham?id=${item.id}&name=${item.code}">#}
-                            {##}
-                            {#                                                            <i class="la la-eye"></i>#}
-                            {#                                                        </a>#}
-                            {#                                                    </li>#}
-                            {#                                                    <li>#}
-                            {#                                                        <a href="/san-pham?id=${item.id}&name=${item.code}">#}
-                            {##}
-                            {#                                                            <i class="la la-heart-o"></i>#}
-                            {#                                                        </a>#}
-                            {#                                                    </li>#}
-                            {#                                                </ul>#}
-                            {#                                            </div>#}
-                            {#                                        </div>#}
-                            {#                                        <div class="product-text clearfix">#}
-                            {#                                            <div class="product-left pull-left"#}
-                            {#                                                 style="padding-top: 20px;padding-bottom: 15px;">#}
-                            {#                                                <div class="product-name">#}
-                            {#                                                    <h3 class="product-title">#}
-                            {#                                                        <a href="/san-pham?id=${item.id}&name=${item.code}"#}
-                            {#                                                           class="color-setting">${item.name}</a>#}
-                            {#                                                    </h3>#}
-                            {#                                                </div>#}
-                            {#                                                <div class="product-price">#}
-                            {#                                                    <span class="price1">${item.giaTruoc}</span>#}
-                            {#                                                    <span class="price">${item.giaSau}</span>#}
-                            {#                                                </div>#}
-                            {#                                            </div>#}
-                            {#                                        </div>#}
-                            {#                                    </div>#}
-                            {#                                </div>#}
-                            {#                                <!-- /product-item -->#}
-                            {#                            </c:forEach>#}
-                            <div class="col-md-3 col-sm-6 col-xs-12 wow animate__backInUp" data-wow-duration="0.5s">
-                                <div class="product-item productG"
-                                     style="margin-top: 0;     min-height: 360px;display: flex;flex-direction: column;align-items: center;">
-                                    <div class="product-image sizeImg"
-                                         style="max-width: 270px;max-height: 300px;float: unset;position: relative;width: 100%;height: 100%">
-                                        <img src="../static/images/sonmoi3.jpg" alt="product"
-                                             class="product-img-first img-responsive"
-                                             style="max-width: 270px; width: 100%; height: 240px; object-fit: cover;">
-                                        <div class="arrIcon"></div>
-                                        <div class="box-posi">-23%</div>
-                                        <div class="arrIcon2">
-                                            <ul>
-                                                <li>
-                                                    <a href="https://go.isclix.com/deep_link/5338615457852929080/5137195332044722903?url=https%3A%2F%2Fbeautyfriend.vn%2Fproducts%2Fson-li-amok-unique-city-technical-matte-lipstick">
-                                                        <i class="la la-shopping-cart"></i>
-                                                    </a>
-                                                </li>
-                                                <li style="margin-left: 6px;margin-right: 6px;">
-                                                    <a href="https://go.isclix.com/deep_link/5338615457852929080/5137195332044722903?url=https%3A%2F%2Fbeautyfriend.vn%2Fproducts%2Fson-li-amok-unique-city-technical-matte-lipstick">
-
-                                                        <i class="la la-eye"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="https://go.isclix.com/deep_link/5338615457852929080/5137195332044722903?url=https%3A%2F%2Fbeautyfriend.vn%2Fproducts%2Fson-li-amok-unique-city-technical-matte-lipstick">
-
-                                                        <i class="la la-heart-o"></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product-text clearfix">
-                                        <div class="product-left pull-left"
-                                             style="padding-top: 20px;padding-bottom: 15px;">
-                                            <div class="product-name">
-                                                <h3 class="product-title">
-                                                    <a href="https://go.isclix.com/deep_link/5338615457852929080/5137195332044722903?url=https%3A%2F%2Fbeautyfriend.vn%2Fproducts%2Fson-li-amok-unique-city-technical-matte-lipstick"
-                                                       class="color-setting">Son Lì Amok Unique City Technical Matte
-                                                        Lipstick</a>
-                                                </h3>
+                            {% for laptop in laptops %}
+                                <div class="col-md-3 col-sm-6 col-xs-12 wow animate__backInUp"
+                                     data-wow-duration="0.5s">
+                                    <div class="product-item productG "
+                                         style="margin-top: 0;     min-height: 360px;display: flex;flex-direction: column;align-items: center;">
+                                        <div class="product-image sizeImg"
+                                             style="max-width: 270px;max-height: 300px;float: unset;position: relative;width: 100%;height: 100%">
+                                            <img src="http://localhost:8000/image/download/{{ laptop.item.image }}"
+                                                 alt="product"
+                                                 class="product-img-first img-responsive"
+                                                 style="max-width: 270px; width: 100%; height: 240px; object-fit: cover;">
+                                            <div class="arrIcon"></div>
+                                            <div class="box-posi">-{{ laptop.item.discount }}%</div>
+                                            <div class="arrIcon2">
+                                                <ul>
+                                                    <li>
+                                                        <div class="cart-button" data-id="${item.id}">
+                                                            <i class="la la-shopping-cart"></i>
+                                                        </div>
+                                                    </li>
+                                                    <li style="margin-left: 6px;margin-right: 6px;">
+                                                        <a href="{% url 'laptop' laptop.id %}">
+                                                            <i class="la la-eye"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
                                             </div>
-                                            <div class="product-price">
-                                                <span class="price1">416,000 Đ</span>
-                                                <span class="price">320,000 Đ</span>
+                                        </div>
+                                        <div class="product-text clearfix">
+                                            <div class="product-left pull-left"
+                                                 style="padding-top: 20px;padding-bottom: 15px;">
+                                                <div class="product-name">
+                                                    <h3 class="product-title">
+                                                        <a href="{% url 'laptop' laptop.id %}"
+                                                           class="color-setting">{{ laptop.item.name }}</a>
+                                                    </h3>
+                                                </div>
+                                                <div class="product-price">
+                                                    {% if 0 != laptop.item.discount %}
+                                                        <span class="price1">{{ laptop.item.price_before }}</span>
+                                                    {% endif %}
+                                                    <span class="price">{{ laptop.item.price }}</span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-3 col-sm-6 col-xs-12 wow animate__backInUp" data-wow-duration="0.5s">
-                                <div class="product-item productG"
-                                     style="margin-top: 0;     min-height: 360px;display: flex;flex-direction: column;align-items: center;">
-                                    <div class="product-image sizeImg"
-                                         style="max-width: 270px;max-height: 300px;float: unset;position: relative;width: 100%;height: 100%">
-                                        <img src="../static/images/sonmoi7.jpg" alt="product"
-                                             class="product-img-first img-responsive"
-                                             style="max-width: 270px; width: 100%; height: 240px; object-fit: cover;">
-                                        <div class="arrIcon"></div>
-                                        <div class="box-posi">-23%</div>
-                                        <div class="arrIcon2">
-                                            <ul>
-                                                <li>
-                                                    <a href="https://go.isclix.com/deep_link/5338615457852929080/5137195332044722903?url=https%3A%2F%2Fbeautyfriend.vn%2Fproducts%2Fson-thoi-sieu-li-the-face-shop-rouge-powder-matte">
-                                                        <i class="la la-shopping-cart"></i>
-                                                    </a>
-                                                </li>
-                                                <li style="margin-left: 6px;margin-right: 6px;">
-                                                    <a href="https://go.isclix.com/deep_link/5338615457852929080/5137195332044722903?url=https%3A%2F%2Fbeautyfriend.vn%2Fproducts%2Fson-thoi-sieu-li-the-face-shop-rouge-powder-matte">
+                                <!-- /product-item -->
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            <div class="tab-content detail-tab">
+                    <div class="latest-product-title title-text">
+                        <h3 class="wow animate__backInUp" data-wow-duration="0.5s"
+                            style="font-size: 25px;color: #c19b76;font-family: serif;">Book</h3>
+                    </div>
+                    <div id="all" class="tab-pane fade  active in">
+                        <div class="row product-gird">
+                            {% for book in books %}
+                                <div class="col-md-3 col-sm-6 col-xs-12 wow animate__backInUp"
+                                     data-wow-duration="0.5s">
+                                    <div class="product-item productG "
+                                         style="margin-top: 0;     min-height: 360px;display: flex;flex-direction: column;align-items: center;">
+                                        <div class="product-image sizeImg"
+                                             style="max-width: 270px;max-height: 300px;float: unset;position: relative;width: 100%;height: 100%">
+                                            <img src="http://localhost:8000/image/download/{{ book.item.image }}"
+                                                 alt="product"
+                                                 class="product-img-first img-responsive"
+                                                 style="max-width: 270px; width: 100%; height: 240px; object-fit: cover;">
+                                            <div class="arrIcon"></div>
+                                            <div class="box-posi">-{{ book.item.discount }}%</div>
+                                            <div class="arrIcon2">
+                                                <ul>
+                                                    <li>
+                                                        <div class="cart-button" data-id="${item.id}">
+                                                            <i class="la la-shopping-cart"></i>
+                                                        </div>
+                                                    </li>
+                                                    <li style="margin-left: 6px;margin-right: 6px;">
+                                                        <a href="{% url 'laptop' book.id %}">
 
-                                                        <i class="la la-eye"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="https://go.isclix.com/deep_link/5338615457852929080/5137195332044722903?url=https%3A%2F%2Fbeautyfriend.vn%2Fproducts%2Fson-thoi-sieu-li-the-face-shop-rouge-powder-matte">
-
-                                                        <i class="la la-heart-o"></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product-text clearfix">
-                                        <div class="product-left pull-left"
-                                             style="padding-top: 20px;padding-bottom: 15px;">
-                                            <div class="product-name">
-                                                <h3 class="product-title">
-                                                    <a href="https://go.isclix.com/deep_link/5338615457852929080/5137195332044722903?url=https%3A%2F%2Fbeautyfriend.vn%2Fproducts%2Fson-thoi-sieu-li-the-face-shop-rouge-powder-matte"
-                                                       class="color-setting">Son Thỏi Siêu Lì The Face Shop Rouge Powder
-                                                        Matte</a>
-                                                </h3>
+                                                            <i class="la la-eye"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
                                             </div>
-                                            <div class="product-price">
-                                                <span class="price1">490,000 Đ</span>
-                                                <span class="price">370,000 Đ</span>
+                                        </div>
+                                        <div class="product-text clearfix">
+                                            <div class="product-left pull-left"
+                                                 style="padding-top: 20px;padding-bottom: 15px;">
+                                                <div class="product-name">
+                                                    <h3 class="product-title">
+                                                        <a href="{% url 'laptop' laptop.id %}"
+                                                           class="color-setting">{{ book.item.name }}</a>
+                                                    </h3>
+                                                </div>
+                                                <div class="product-price">
+                                                    {% if 0 != book.item.discount %}
+                                                        <span class="price1">{{ book.item.price_before }}</span>
+                                                    {% endif %}
+                                                    <span class="price">{{ book.item.price }}</span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="blog">
-        <div class="container">
-            <div class="row" style="margin-top: 30px">
-                <div class="col-md-6 relative wow animate__backInLeft" data-wow-duration="0.5s"
-                     style="margin-bottom: 50px">
-                    <img src="//theme.hstatic.net/1000205447/1000553611/14/promo_banner.jpg?v=2617" alt="logo"
-                         class="img-responsive">
-                    <div class="arrival">
-                        <a href="/page-san-pham?name=kem-duong-da&page=1&limit=6" style="color: #000"
-                           class="Brightness">
-                            <div class="btn-arrival">
-                                <div>Mua sắm<img src="../static/images/arr.jpg" alt="logo"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-6 relative wow animate__backInRight" data-wow-duration="0.5s"
-                     style="    margin-bottom: 15px;">
-                    <img src="//theme.hstatic.net/1000205447/1000553611/14/2promo_banner.jpg?v=2617" alt="logo"
-                         class=" img-responsive">
-                    <div class="arrival">
-                        <a href="/page-san-pham?name=son-moi&page=1&limit=6" style="color: #000" class="Brightness">
-                            <div class="btn-arrival">
-                                <div>Mua sắm<img src="../static/images/arr.jpg" alt="logo"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row" style="margin-top: 80px">
-                <div class="col-md-6 relative wow animate__backInLeft" data-wow-duration="0.5s"
-                     style="    margin-bottom: 15px;">
-                    <img src="//theme.hstatic.net/1000205447/1000553611/14/3promo_banner.jpg?v=2617" alt="logo"
-                         class=" img-responsive">
-                </div>
-                <div class="col-md-6 relative wow animate__backInRight" data-wow-duration="0.5s"
-                     style="    margin-bottom: 15px;">
-                    <img src="//theme.hstatic.net/1000205447/1000553611/14/4promo_banner.jpg?v=2617" alt="logo"
-                         class=" img-responsive">
-                </div>
-            </div>
-            <div class="latest-product-title title-text" style="    margin-bottom: 30px;">
-                <h3 style="font-size: 25px;color: #c19b76;font-family: serif;">Xu hướng làm đẹp</h3>
-            </div>
-            <div class="row wow animate__backInUp" data-wow-duration="0.5s">
-                <div class="col-md-4">
-                    <div class="relative">
-                        <img src="//file.hstatic.net/1000205447/article/lam-dep-nhanh-1_933c2e768154459f9a611d625d9af3a2_eb53d027c6254b9e8fd6859533d0dbdc_large.jpg"
-                             alt="logo" class=" img-responsive blog-css" style="height: 200px">
-                        <div class="blog-posi">
-                            <p>Jul 19,2019 / 4 Comments</p>
-                            <div class="clearfix">
-                                <h4>Các bước làm đẹp nhanh cho những buổi sáng vội vã</h4>
-                                <a href="https://go.isclix.com/deep_link/5338615457852929080?url=https%3A%2F%2Fbeautyfriend.vn%2Fblogs%2Fxu-huong-lam-dep%2Fcac-buoc-lam-dep-nhanh-cho-nhung-buoi-sang-voi-va">
-                                    <img src="../static/images/right-direction.png"
-                                         alt="logo"></a>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="relative">
-                        <img src="//file.hstatic.net/1000205447/article/wdqocbf_2f062f3c65864d369ad654eb2950e157_b9314b6e82d84881817c6e11e7ae436a_large.jpg"
-                             alt="blog" class=" img-responsive blog-css" style="height: 200px">
-                        <div class="blog-posi">
-                            <p>Feb 12, 2019 / 8 Comments</p>
-                            <div class="clearfix">
-                                <h4>5 Tips Để Tận Dụng Triệt Để Mặt Nạ Giấy Dưỡng Da</h4>
-                                <a href="https://go.isclix.com/deep_link/5338615457852929080?url=https%3A%2F%2Fbeautyfriend.vn%2Fblogs%2Fxu-huong-lam-dep%2Ftips-tan-dung-triet-de-mat-na-giay-5-tips-dung-mat-na-giay">
-                                    <img src="../static/images/right-direction.png"
-                                         alt="logo"></a>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="relative">
-                        <img src="//file.hstatic.net/1000205447/article/banner_wed_hs_chong_cum_e60059b6d08c49c7ae67ad0e7a067213_large.jpg"
-                             alt="logo" class=" img-responsive blog-css" style="height: 200px;">
-                        <div class="blog-posi">
-                            <p>Feb 12, 2019 / 8 Comments</p>
-                            <div class="clearfix">
-                                <h4>Hồng sâm Chống Cúm Gin Saponin Capsule - Tại Sao Nên Dùng Trong Mùa Dịch
-                                    Covid-19</h4>
-                                <a href="https://go.isclix.com/deep_link/5338615457852929080?url=https%3A%2F%2Fbeautyfriend.vn%2Fblogs%2Fxu-huong-lam-dep%2Fhong-sam-chong-cum-gin-saponin-capsule-tai-sao-nen-dung-trong-mua-dich-covid-19">
-                                    <img src="../static/images/right-direction.png"
-                                         alt="logo"></a>
-                            </div>
+                                <!-- /product-item -->
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
@@ -319,27 +180,33 @@
     <section class="trademark trademarkV2 clearfix wow animate__backInUp" data-wow-duration="0.5s">
         <div class="container">
             <div class="trademark-listV2 owl-carousel owl-loaded">
-                <a href="#"><img src="//theme.hstatic.net/1000205447/1000553611/14/logo-6.png?v=2617"
-                                 alt="Home_Portfolio5"
-                                 class="img-responsive"/></a>
-                <a href="#"><img src="//theme.hstatic.net/1000205447/1000553611/14/logo-7.png?v=2617"
-                                 alt="Home_Portfolio5"
-                                 class="img-responsive"/></a>
-                <a href="#"><img src="//theme.hstatic.net/1000205447/1000553611/14/logo-8.png?v=2617"
-                                 alt="Home_Portfolio5"
-                                 class="img-responsive"/></a>
-                <a href="#"><img src="//theme.hstatic.net/1000205447/1000553611/14/logo-9.png?v=2617"
-                                 alt="Home_Portfolio5"
-                                 class="img-responsive"/></a>
-                <a href="#"><img src="//theme.hstatic.net/1000205447/1000553611/14/logo-10.png?v=2617"
-                                 alt="Home_Portfolio5"
-                                 class="img-responsive"/></a>
-                <a href="#"><img src="//theme.hstatic.net/1000205447/1000553611/14/logo-11.png?v=2617"
-                                 alt="Home_Portfolio5"
-                                 class="img-responsive"/></a>
+                <a href="#"><img
+                        style="height: 45px; width: 45px"
+                        src="../static/images/apple_logo.png"
+                        alt="Home_Portfolio5"
+                        class="img-responsive"/></a>
+                <a href="#"><img
+                        style="height: 45px; width: 45px"
+                        src="../static/images/dell_logo.png"
+                        alt="Home_Portfolio5"
+                        class="img-responsive"/></a>
+                <a href="#"><img
+                        style="height: 45px; width: 45px"
+                        src="../static/images/asus_logo.png"
+                        alt="Home_Portfolio5"
+                        class="img-responsive"/></a>
+                <a href="#"><img
+                        style="height: 45px; width: 45px"
+                        src="../static/images/lenovo_logo.png"
+                        alt="Home_Portfolio5"
+                        class="img-responsive"/></a>
+                <a href="#"><img
+                        style="height: 45px; width: 45px"
+                        src="../static/images/acer_logo.png"
+                        alt="Home_Portfolio5"
+                        class="img-responsive"/></a>
             </div>
         </div>
 
     </section>
-
 {% endblock content %}

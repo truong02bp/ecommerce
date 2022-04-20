@@ -15,4 +15,7 @@ class Item(models.Model):
     def __str__(self):
         return "".join([str(self.id) + " - " + str(self.name) + " - " + str(self.price)])
 
+    def price_before(self):
+        return self.price*(100 + self.discount)/100
+
 

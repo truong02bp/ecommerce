@@ -60,4 +60,5 @@ class BookAdmin(admin.ModelAdmin):
     list_display = ['id', 'author', 'publisher', 'item', 'category', 'page', 'language',
                     'title']
 
+
 admin.site.register(Book, BookAdmin)

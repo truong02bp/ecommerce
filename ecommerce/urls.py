@@ -10,5 +10,7 @@ urlpatterns = [
     path('login', views.login, name = 'login'),
     path('register', views.register, name = 'register'),
     path('api/user/create', views.create_user, name = 'create'),
-    path('api/user/get', views.get_user, name = 'get-user')
+    path('api/user/get', views.get_user, name = 'get-user'),
+    path('laptop/<int:id>', views.laptop_detail, name = 'laptop'),
+    path('laptop', views.laptop_page, name = 'laptop-page'),
 ]

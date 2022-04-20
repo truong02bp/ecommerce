@@ -1,0 +1,166 @@
+{% extends 'main.html' %}
+{% block content %}
+    <section style="margin-top: 100px;margin-bottom: 50px; display: flex; flex-direction: row">
+        <div class="container wow animate__backInUp" data-wow-duration="0.5s">
+            <div class="row">
+                <div class="col-md-6">
+                    <div style="">
+                        <div class="image-preview-container">
+                            <!-- - - - - - - - - - - - - - Image Preview Container - - - - - - - - - - - - - - - - -->
+                            <div class="image-preview" style="width: 100%;">
+                                <a href="http://localhost:8000/image/download/{{ laptop.item.image }}"
+                                   data-zoom-image="../static/images/${item.code}.jpg"
+                                   data-fancybox="group">
+                                    <img id="zoom-image"
+                                         src="http://localhost:8000/image/download/{{ laptop.item.image }}"
+                                         alt=""
+                                         style="max-height: 310px; max-width: 470px;width: 100%;height: 100%;display: block;margin: 0 auto;">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-6  clearfix">
+                    <div class="mid-product-content media-body">
+                        <h3 style="font-size: 35px; color: #c19b76">{{ laptop.item.name }}</h3>
+                        <div class="notable clearfix">
+                            <ul>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star-o"></i></li>
+                            </ul>
+                        </div><!--/notable-->
+                        {% if laptop.item.discount != 0 %}
+                            <div style="display: flex; margin-top: 30px;">
+                            <span class="price-old"
+                                  style="font-size: 18px; font-weight: 400;">{{ laptop.item.price_before }} VNĐ
+                            </span>
+                                <div style="height: 20px; width: 20px;"></div>
+                                <p>-{{ laptop.item.discount }}%</p>
+                            </div>
+
+                        {% endif %}
+                        <div style="margin-top: 30px">
+                            <span class="details-price">{{ laptop.item.price }} VNĐ</span>
+                        </div>
+
+
+                        <div class="lineAbout" style="width: 100%;height: 1px;    margin-top: 15px;"></div>
+                        <div class="addCart">
+                            <ul>
+                                <li>
+                                    <button class="button btn-hover btn-details btn-buy" data-type="trigger-modal"
+                                            >Buy <i
+                                            class="la la-shopping-cart"
+                                            style="font-size: 20px;position: relative;top: 2px;"></i></button>
+                                </li>
+                                <li>
+                                    <button class="button btn-hover btn-details cart-button" data-id="${item.id}"
+                                            style="margin-top: 15px; margin-left: 20px" data-modal="popup1">
+                                        Add to cart
+                                        <i class="la la-shopping-cart"
+                                           style="font-size: 20px;position: relative;top: 2px;">
+                                        </i>
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div><!--/mid-product-content-->
+                </div>
+            </div>
+        </div>
+    </section>
+    <div id="popup1" class="overlay">
+        <div class="popup">
+            <a class="close close-modal" href="#">&times;</a>
+            <div class="content">
+                Add to cart success
+            </div>
+        </div>
+    </div>
+    <script>
+        $('.cart-button').on('click', function () {
+            $(`#popup1`).toggleClass('overlay-modal');
+        });
+        $('.close-modal').click(function () {
+            $(`#popup1`).toggleClass('overlay-modal');
+        })
+    </script>
+    <section class="tabProduct wow animate__backInUp" data-wow-duration="0.5s">
+        <div class="container">
+            <div class="menuTabPro">
+                <ul class="">
+                    <li class="active"><a data-toggle="tab" href="#home">Description</a></li>
+                </ul>
+            </div>
+            <div class="tab-content">
+                <div id="home" class="tab-pane fade in active tabProText" style="width: 100%; overflow: hidden">
+                    <div class="if-box">
+                        <p>{{ laptop.item.description }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="page-shop-slidebar wow animate__backInUp" data-wow-duration="0.75s" style="padding-top: 60px;">
+        <div class="container">
+            <div class="text-center">
+                <h3>Một số sản phẩm nổi bật</h3>
+            </div>
+            <div class="row">
+                {% for laptop in laptops %}
+                    <div class="col-md-3 col-sm-6 col-xs-12 wow animate__backInUp"
+                         data-wow-duration="0.5s">
+                        <div class="product-item productG "
+                             style="margin-top: 0;     min-height: 360px;display: flex;flex-direction: column;align-items: center;">
+                            <div class="product-image sizeImg"
+                                 style="max-width: 270px;max-height: 300px;float: unset;position: relative;width: 100%;height: 100%">
+                                <img src="http://localhost:8000/image/download/{{ laptop.item.image }}"
+                                     alt="product"
+                                     class="product-img-first img-responsive"
+                                     style="max-width: 270px; width: 100%; height: 240px; object-fit: cover;">
+                                <div class="arrIcon"></div>
+                                <div class="box-posi">-{{ laptop.item.discount }}%</div>
+                                <div class="arrIcon2">
+                                    <ul>
+                                        <li>
+                                            <div class="cart-button" data-id="${item.id}">
+                                                <i class="la la-shopping-cart"></i>
+                                            </div>
+                                        </li>
+                                        <li style="margin-left: 6px;margin-right: 6px;">
+                                            <a href="{% url 'laptop' laptop.id %}">
+
+                                                <i class="la la-eye"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="product-text clearfix">
+                                <div class="product-left pull-left"
+                                     style="padding-top: 20px;padding-bottom: 15px;">
+                                    <div class="product-name">
+                                        <h3 class="product-title">
+                                            <a href="{% url 'laptop' laptop.id %}"
+                                               class="color-setting">{{ laptop.item.name }}</a>
+                                        </h3>
+                                    </div>
+                                    <div class="product-price">
+                                        {% if 0 != laptop.item.discount %}
+                                            <span class="price1">{{ laptop.item.price_before }}</span>
+                                        {% endif %}
+                                        <span class="price">{{ laptop.item.price }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -7,7 +7,7 @@
                         <div class="pull-left nav-left">
                             <div class="logo">
                                 <a href="{% url 'home' %}">
-                                    <h1>Technology store</h1>
+                                    <h1>Ecommerce</h1>
                                 </a>
                             </div>
                         </div>
@@ -20,63 +20,16 @@
                             <div class="navbar-main">
                                 <ul class="navbar-menu">
                                     <li class="dropdown">
-                                        <a href="/trang-chu" class="active-menu">Home</a>
+                                        <a href="{% url 'home' %}" class="active-menu">Home</a>
                                     </li>
                                     <li class="dropdown productMN">
-                                        <a href="#" class="active-menu">Mobile Phone</a>
-                                        <i class="fa fa-angle-down"></i>
-                                        <div class="box-menu">
-                                            <div class="row">
-
-                                                <div class="col-md-6 ">
-                                                    <div class=" slideSort">
-                                                        <h2 class="slider-left-title"
-                                                            style=" font-size: 20px;color: #c19b76;font-family: serif;">
-                                                            Các loại sản phẩm</h2>
-                                                        <br>
-                                                        <ul class="slide-left-list">
-                                                            <li><h3><a
-                                                                    href="/page-san-pham?name=son-moi&page=1&limit=9">Son
-                                                                môi</a></h3></li>
-                                                            <br>
-                                                            <li><h3><a
-                                                                    href="/page-san-pham?name=mascara&page=1&limit=9">Mascara</a>
-                                                            </h3></li>
-                                                            <br>
-                                                            <li><h3><a
-                                                                    href="/page-san-pham?name=kem-phan&page=1&limit=9">Kem
-                                                                phủ - phấn</a></h3></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6 ">
-                                                    <div class="box-slider-left slideNewproduct slideNewproduct2">
-                                                        <h2 class="slider-left-title"
-                                                            style=" font-size: 20px;color: #c19b76;font-family: serif;margin-bottom: 10px">
-                                                            Sản phẩm bán chạy nhất</h2>
-                                                        <div class="box-slideNewproduct">
-                                                            <div class="slideNewproduct-item slideNewproduct-img">
-                                                                <a href="/san-pham?id=21&name=gluwhite-vn"><img
-                                                                        src="../static/images/gluwhite-vn.jpg"
-                                                                        alt="product1"
-                                                                        class="img-responsive"></a>
-                                                            </div>
-                                                            <div class="slideNewproduct-item slideNewproduct-text">
-                                                                <h4><a href="/san-pham?id=21&name=gluwhite-vn">Viên sủi
-                                                                    trắng da Gluwhite</a></h4>
-                                                                <p class="slideProduct-price"
-                                                                   style="font-size: 16px;margin-top: 0;">890,000 đ</p>
-                                                            </div>
-                                                        </div>
-                                                        <br>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <a href="{% url 'laptop-page' %}" class="active-menu">Laptop</a>
                                     </li>
-                                    {#                                    <security:authorize access="isAnonymous()">#}
+                                    <li class="dropdown productMN">
+                                        <a href="#" class="active-menu">Book</a>
+                                    </li>
                                     <li class="dropdown">
-                                        <a href="/dang-nhap" class="active-menu">Login</a>
+                                        <a href="#" class="active-menu">Login</a>
                                     </li>
                                     {#                                    </security:authorize>#}
                                     <li class="dropdown" id="cart-parent">
@@ -96,6 +49,18 @@
                                             {#                                                </div>#}
                                             {#                                            </c:if>#}
                                         </a>
+                                    </li>
+                                    <li class="dropdown">
+                                        <div class="search2">
+                                            <ul>
+                                                <li>
+                                                    <input type="text" id="search" placeholder="Search"/>
+                                                </li>
+                                                <li>
+                                                    <div class="fa fa-search " id="search-button"></div>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </li>
                                     {#                                    <security:authorize access="isAuthenticated()">#}
                                     {#                                        <li>#}
@@ -119,16 +84,7 @@
                                     {#                                    </security:authorize>#}
                                 </ul>
                             </div>
-                            {#                            <div class="search2">#}
-                            {#                                    <ul>#}
-                            {#                                        <li>#}
-                            {#                                            <input type="text" id="search" placeholder="Search">#}
-                            {#                                        </li>#}
-                            {#                                        <li>#}
-                            {#                                            <div class="fa fa-search " id="search-button"></div>#}
-                            {#                                        </li>#}
-                            {#                                    </ul>#}
-                            {#                                </div>#}
+
                         </div>
                     </div>
                 </div>
