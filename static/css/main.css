@@ -6957,14 +6957,14 @@ ul li {
     border-radius: 20px;
     height: 40px;
     background: transparent;
-    color: #fff;
+    color: black;
 }
 
 .search2 a {
     position: absolute;
     top: 13px;
     right: 21px;
-    color: #fff;
+    color: black;
 }
 
 .title-text {
@@ -8596,10 +8596,11 @@ ul li {
     margin-top: -40px;
     margin-left: 15px;
 }
-.hieuung:hover
-{
+
+.hieuung:hover {
     background-color: yellow;
 }
-.home-menu{
+
+.home-menu {
     top: 0 !important;
 }

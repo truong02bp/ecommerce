@@ -53,7 +53,7 @@
                             <ul>
                                 <li>
                                     <button class="button btn-hover btn-details btn-buy" data-type="trigger-modal"
-                                            >Buy <i
+                                    >Buy <i
                                             class="la la-shopping-cart"
                                             style="font-size: 20px;position: relative;top: 2px;"></i></button>
                                 </li>
@@ -99,7 +99,7 @@
             <div class="tab-content">
                 <div id="home" class="tab-pane fade in active tabProText" style="width: 100%; overflow: hidden">
                     <div class="if-box">
-                        <p>{{ laptop.item.description }}</p>
+                        <p>{{ laptop.item.description |safe }}</p>
                     </div>
                 </div>
             </div>

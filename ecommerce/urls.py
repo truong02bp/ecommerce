@@ -4,13 +4,12 @@ from ecommerce import views
 
 urlpatterns = [
     path('', views.home, name = 'home'),
-    path('products', views.products, name = 'products'),
-    path('contact', views.contact, name = 'contact'),
-    path('about', views.about, name = 'about'),
-    path('login', views.login, name = 'login'),
+    path('login', views.login_page, name = 'login'),
     path('register', views.register, name = 'register'),
-    path('api/user/create', views.create_user, name = 'create'),
-    path('api/user/get', views.get_user, name = 'get-user'),
     path('laptop/<int:id>', views.laptop_detail, name = 'laptop'),
     path('laptop', views.laptop_page, name = 'laptop-page'),
+    path('api/user/create', views.create_user, name = 'create'),
+    path('api/authenticate', views.check_login, name = 'authenticate'),
+    path('cart', views.cart, name = 'cart'),
+    path('logout', views.logout_request, name = 'logout')
 ]

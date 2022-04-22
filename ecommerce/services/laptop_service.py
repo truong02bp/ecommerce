@@ -26,16 +26,16 @@ class LaptopService:
         return Laptop.objects.count()
 
     def find_by_producer_and_name(self, producer, name, page, limit, sort):
-        offset = (page-1) * limit
+        offset = (page - 1) * limit
         if producer is None:
             producer = ''
         if name is None:
             name = ''
         if sort == 'asc':
-            return Laptop.objects.filter(item__name__contains=str(name)).filter(
-                producer__name__contains=str(producer)).order_by('item__price')[offset:offset + limit]
+            return Laptop.objects.filter(item__name__icontains=str(name)).filter(
+                producer__name__icontains=str(producer)).order_by('item__price')[offset:offset + limit]
         if sort == 'desc':
-            return Laptop.objects.filter(item__name__contains=str(name)).filter(
-                producer__name__contains=str(producer)).order_by('-item__price')[offset:offset + limit]
-        return Laptop.objects.filter(item__name__contains=str(name)).filter(
-            producer__name__contains=str(producer))[offset:offset + limit]
+            return Laptop.objects.filter(item__name__icontains=str(name)).filter(
+                producer__name__icontains=str(producer)).order_by('-item__price')[offset:offset + limit]
+        return Laptop.objects.filter(item__name__icontains=str(name)).filter(
+            producer__name__icontains=str(producer))[offset:offset + limit]

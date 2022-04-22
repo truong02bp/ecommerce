@@ -3,10 +3,24 @@
   <component name="ChangeListManager">
     <list default="true" id="ffc8de66-312a-48de-857e-c0e92f3595e1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecom_project/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecom_project/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce/migrations/0002_item_quantity_item_title.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce/migrations/0003_author_publisher_book.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce/migrations/0004_book_category.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce/migrations/0005_remove_item_title_alter_item_description.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce/models/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/models/user.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ecommerce/services/laptop_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/services/laptop_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ecommerce/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/js/jquery.jqGrid.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/js/jquery.jqGrid.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/login.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/item.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/item.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/laptop.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/laptop.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -35,14 +49,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/truong/Documents/subject_ptit/he-thong-thuong-mai-dien-tu/django-ecommerce/ecommerce/services"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/truong/Documents/subject_ptit/he-thong-thuong-mai-dien-tu/django-ecommerce/ecommerce/services&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/ecommerce/services" />
@@ -109,6 +123,8 @@
       <workItem from="1650432004328" duration="4002000" />
       <workItem from="1650446063467" duration="3376000" />
       <workItem from="1650462078920" duration="10420000" />
+      <workItem from="1650514516782" duration="3030000" />
+      <workItem from="1650612585702" duration="10783000" />
     </task>
     <servers />
   </component>

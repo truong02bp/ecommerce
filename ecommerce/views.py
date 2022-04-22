@@ -1,10 +1,13 @@
 import math
+from pyexpat.errors import messages
 
-from django.shortcuts import render
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import AnonymousUser
+from django.shortcuts import render, redirect
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
-from ecommerce.serializers import UserSerializer
+from ecommerce.serializers import UserRegisterSerializer, UserLoginSerializer
 from ecommerce.services.book_service import BookService
 from ecommerce.services.laptop_service import LaptopService
 from ecommerce.services.producer_service import ProducerService
@@ -65,22 +68,7 @@ def book_page(request):
     return render(request, 'laptop.html', context)
 
 
-def products(request):
-    context = {}
-    return render(request, 'products.html', context)
-
-
-def about(request):
-    context = {}
-    return render(request, 'about.html', context)
-
-
-def contact(request):
-    context = {}
-    return render(request, 'contact.html', context)
-
-
-def login(request):
+def login_page(request):
     context = {}
     return render(request, 'login.html', context)
 
@@ -90,17 +78,33 @@ def register(request):
     return render(request, 'register.html', context)
 
 
-@api_view(['GET'])
-def get_user(request):
-    users = User.objects.all()
-    serializer = UserSerializer(users, many=True)
-    return Response(serializer.data)
+def cart(request):
+    user = request.user
+    if not user.is_authenticated:
+        return redirect('login')
+    context = {}
+    return render(request, 'cart.html', context)
 
 
 @api_view(['POST'])
 def create_user(request):
-    serializer = UserSerializer(data=request.data)
+    serializer = UserRegisterSerializer(data=request.data)
     if serializer.is_valid():
-        serializer.set_password(serializer.password)
-        serializer.save()
+        instance = serializer.save()
+        instance.set_password(instance.password)
+        instance.save()
     return Response(serializer.data)
+
+
+def check_login(request):
+    username = request.POST['username']
+    password = request.POST['password']
+    user = authenticate(request, username=username, password=password)
+    if user is not None:
+        login(request, user)
+    return redirect('home')
+
+
+def logout_request(request):
+    logout(request)
+    return redirect('home')

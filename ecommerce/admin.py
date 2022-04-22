@@ -1,8 +1,6 @@
 from django.contrib import admin
 from .models import User, Laptop, Category, Item, Producer, Publisher, Author, Book
 
-admin.site.register(User)
-
 
 class CategoryAdmin(admin.ModelAdmin):
     pass
@@ -62,3 +60,10 @@ class BookAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Book, BookAdmin)
+
+
+class UserAdmin(admin.ModelAdmin):
+    pass
+
+
+admin.site.register(User, UserAdmin)
