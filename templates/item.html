@@ -89,7 +89,7 @@
                                                     {% if 0 != laptop.item.discount %}
                                                         <span class="price1">{{ laptop.item.price_before }}</span>
                                                     {% endif %}
-                                                    <span class="price">{{ laptop.item.price }}</span>
+                                                    <span class="price price-format">{{ laptop.item.price }}</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -130,7 +130,7 @@
                                 </div>
                                 <div class="slideNewproduct-item slideNewproduct-text">
                                     <h5><a href="{% url 'laptop' product.id %}">{{ product.item.name }}</a></h5>
-                                    <p class="slideProduct-price">{{ product.item.price }}</p>
+                                    <p class="slideProduct-price price-format">{{ product.item.price }}</p>
                                 </div>
                             </div>
                         {% endfor %}

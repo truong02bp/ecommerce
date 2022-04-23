@@ -9,6 +9,7 @@ from rest_framework.response import Response
 
 from ecommerce.serializers import UserRegisterSerializer, UserLoginSerializer
 from ecommerce.services.book_service import BookService
+from ecommerce.services.cart_service import CartService
 from ecommerce.services.laptop_service import LaptopService
 from ecommerce.services.producer_service import ProducerService
 
@@ -19,6 +20,11 @@ def home(request):
     laptop_service = LaptopService.get_instance()
     laptops = laptop_service.find_limit(8)
     context = {'books': books, 'laptops': laptops}
+    if request.user.is_authenticated:
+        cart_service = CartService.getInstance()
+        quantity_item = cart_service.count_item(request.user.id)
+        context['quantity_item'] = quantity_item
+
     return render(request, 'index.html', context)
 
 
@@ -82,7 +88,9 @@ def cart(request):
     user = request.user
     if not user.is_authenticated:
         return redirect('login')
-    context = {}
+    cart_service = CartService.getInstance()
+    cart = cart_service.find_by_user_id(user.id)
+    context = {'cart': cart, 'cart_items': cart.cartitem_set.all(), 'quantity_item': cart.cartitem_set.count()}
     return render(request, 'cart.html', context)
 
 
@@ -108,3 +116,30 @@ def check_login(request):
 def logout_request(request):
     logout(request)
     return redirect('home')
+
+
+@api_view(['POST'])
+def add_to_cart(request):
+    user = request.user
+    if not user.is_authenticated:
+        return Response(403)
+    cart_service = CartService.getInstance()
+    count = cart_service.add_to_cart(user.id, request.data['id'])
+    return Response(count)
+
+
+@api_view(['DELETE'])
+def remove_from_cart(request):
+    user = request.user
+    cart_service = CartService.getInstance()
+    count = cart_service.remove_from_cart(user.id, request.data['id'])
+    return Response(count)
+
+
+@api_view(['PUT'])
+def update_quantity(request):
+    cart_item_id = request.data['id']
+    quantity = request.data['quantity']
+    cart_service = CartService.getInstance()
+    total_price = cart_service.update_quantity(cart_item_id, quantity)
+    return Response(total_price)

@@ -8,3 +8,6 @@ class BankInfo(models.Model):
     name = models.CharField(max_length=128)
     date = models.DateTimeField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    class Meta:
+        db_table = 'ecommerce_bank_info'

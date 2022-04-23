@@ -31,20 +31,15 @@
                                     {#                                    </security:authorize>#}
                                     <li class="dropdown" id="cart-parent">
                                         <a href="{% url 'cart' %}"><img src="../static/images/cart.png">
-                                            {#                                            <c:if test="${not empty carts && sessionScope.carts.size()!= 0}">#}
-                                            {#                                                <div class="cart-alert">#}
-                                            {#                                                        <span>#}
-                                            {#                                                                ${sessionScope.carts.size()}#}
-                                            {#                                                        </span>#}
-                                            {#                                                </div>#}
-                                            {#                                            </c:if>#}
-                                            {#                                            <c:if test="${empty carts || sessionScope.carts.size() == 0}">#}
-                                            {#                                                <div>#}
-                                            {#                                                        <span>#}
-                                            {#                                                                ${sessionScope.carts.size()}#}
-                                            {#                                                        </span>#}
-                                            {#                                                </div>#}
-                                            {#                                            </c:if>#}
+                                            {% if user.is_authenticated %}
+                                                {% if quantity_item != 0 %}
+                                                    <div class="cart-alert">
+                                                                                                    <span>
+                                                                                                            {{ quantity_item }}
+                                                                                                    </span>
+                                                    </div>
+                                                {% endif %}
+                                            {% endif %}
                                         </a>
                                     <li class="dropdown">
                                         {% if user.is_authenticated %}

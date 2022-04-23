@@ -44,7 +44,7 @@
 
                         {% endif %}
                         <div style="margin-top: 30px">
-                            <span class="details-price">{{ laptop.item.price }} VNĐ</span>
+                            <span class="details-price price-format">{{ laptop.item.price }} VNĐ</span>
                         </div>
 
 
@@ -58,8 +58,8 @@
                                             style="font-size: 20px;position: relative;top: 2px;"></i></button>
                                 </li>
                                 <li>
-                                    <button class="button btn-hover btn-details cart-button" data-id="${item.id}"
-                                            style="margin-top: 15px; margin-left: 20px" data-modal="popup1">
+                                    <button class="button btn-hover btn-details cart-button" data-id="{{ laptop.item.id }}"
+                                            style="margin-top: 15px; margin-left: 20px">
                                         Add to cart
                                         <i class="la la-shopping-cart"
                                            style="font-size: 20px;position: relative;top: 2px;">
@@ -73,14 +73,6 @@
             </div>
         </div>
     </section>
-    <div id="popup1" class="overlay">
-        <div class="popup">
-            <a class="close close-modal" href="#">&times;</a>
-            <div class="content">
-                Add to cart success
-            </div>
-        </div>
-    </div>
     <script>
         $('.cart-button').on('click', function () {
             $(`#popup1`).toggleClass('overlay-modal');
@@ -151,9 +143,9 @@
                                     </div>
                                     <div class="product-price">
                                         {% if 0 != laptop.item.discount %}
-                                            <span class="price1">{{ laptop.item.price_before }}</span>
+                                            <span class="price1 price-format">{{ laptop.item.price_before }}</span>
                                         {% endif %}
-                                        <span class="price">{{ laptop.item.price }}</span>
+                                        <span class="price price-format">{{ laptop.item.price }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -163,4 +155,47 @@
             </div>
         </div>
     </section>
+    <script>
+        $('.cart-button').click(function () {
+            let id = $(this).attr("data-id");
+            $.ajax(
+                {
+                    url: "/api/cart/add",
+                    type: "POST",
+                    headers: {"X-CSRFToken": '{{ csrf_token }}'},
+                    data:
+                        {
+                            id: id
+                        },
+                    success: function (value) {
+                        // alert("Thêm vào giỏ hàng thành công");
+                        if (value === 403) {
+                            Swal.fire(
+                                'Login?',
+                                'Please login before add to cart',
+                            )
+                        } else {
+                            $('#cart-parent').find("div").html("<span>" + value + "</span>");
+                            $('#cart-parent').find("div").addClass("cart-alert");
+                            Swal.fire({
+                                position: 'center',
+                                icon: 'success',
+                                title: 'Add to cart success',
+                                showConfirmButton: true,
+                                timer: 2000
+                            })
+                        }
+                    },
+                    error: function () {
+                        Swal.fire(
+                            {
+                                icon: 'error',
+                                title: 'Oops...'
+                            }
+                        )
+                    }
+                }
+            )
+        })
+    </script>
 {% endblock %}

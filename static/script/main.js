@@ -673,9 +673,7 @@ $(function() {
     }
     function handleMouseWheelDirection( direction )
     {
-        console.log( direction ); // see the direction in the console
         if ( direction == 'down' ) {
-            console.log( 11111 );
             var nav = $('.aaaa');
 
             nav.removeClass("fixed");

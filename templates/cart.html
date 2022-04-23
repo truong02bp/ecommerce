@@ -1,116 +1,204 @@
-{#{% extends 'main.html' %}#}
-{#{% block content %}#}
-{#    <section class="myAcc myAcc2">#}
-{#        <div class="container">#}
-{#            <div class="row">#}
-{#                <div class="col-md-8">#}
-{#                    <div class="row row-cart" style="margin-bottom: 30px;">#}
-{#                        <div class="col-md-1" style="text-align: center;">#}
-{#                        </div>#}
-{#                        <div class=" col-md-2">#}
-{#                        </div>#}
-{#                        <div class="col-md-2" style="text-align: center;    font-size: 16px;">#}
-{#                            Tên sản phẩm#}
-{#                        </div>#}
-{#                        <div class="col-md-2" style="text-align: right;font-size: 16px;">#}
-{#                            Giá tiền#}
-{#                        </div>#}
-{#                        <div class="col-md-3" style="text-align: center;    font-size: 16px;">#}
-{#                            Số lượng#}
-{#                        </div>#}
-{#                        <div class="col-md-2" style="text-align: right;    font-size: 16px;">Thành tiền</div>#}
-{#                    </div>#}
-{#                    <c:if test="${sessionScope.carts.size() != 0}">#}
-{#                        <c:forEach var="item" items="${sessionScope.carts.values()}">#}
-{#                            <div class="row row-cart" style="margin-bottom: 15px;" data-value="${item.itemDto.id}">#}
-{#                                <div class="col-md-1" style="text-align: center;padding-top: 58px;">#}
-{#                                    <div class="delete-cart" data-id="${item.itemDto.id}">#}
-{#                                        <i class="la la-close" style="font-size: 20px;"></i>#}
-{#                                    </div>#}
-{#                                </div>#}
-{#                                <div class="col-md-2">#}
-{#                                    <img src="<c:url value="/template/images/${item.itemDto.code}.jpg"/>" alt="product"#}
-{#                                    class="img-responsive img-product">#}
-{#                                </div>#}
-{#                                <div class="col-md-2" style="text-align: center;padding-top: 58px;">#}
-{#                                    ${item.itemDto.name}#}
-{#                                </div>#}
-{#                                <div class="col-md-2" style="text-align: right;padding-top: 58px;">#}
-{#                                    ${item.itemDto.giaSau}#}
-{#                                </div>#}
-{#                                <div class="col-md-3" style="text-align: right;padding-top: 42px;">#}
-{#                                    <div class="cart-product-two shopping-cart-quantity cartConver">#}
-{#                                        <div class="pd-c-quantity quantity add-card add-card-product">#}
-{#                                            <input class="quantity-item" type="number" min="1" max="100" step="1"#}
-{#                                                   value="${item.soLuong}"#}
-{#                                                   style="border-bottom: 1px solid rgb(193, 155, 118);padding-bottom: 10px;">#}
-{#                                            <div class="quantity-button quantity-down">#}
-{#                                                <span><i class="la la-minus"></i></span>#}
-{#                                            </div>#}
-{#                                            <div class="quantity-button quantity-up">#}
-{#                                                <span><i class="la la-plus"></i></span>#}
-{#                                            </div>#}
-{#                                        </div>#}
-{#                                    </div>#}
-{#                                </div>#}
-{#                                <div class="col-md-2 cart-price" data-price="${item.price}"#}
-{#                                     style="text-align: right;padding-top: 58px;">${item.price}#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </c:forEach>#}
-{#                    </c:if>#}
-{#                    <c:if test="${sessionScope.carts.size() == 0 || empty sessionScope.carts}">#}
-{#                        <p style="    font-size: 16px;">Chưa có sản phẩm nào được thêm vào giỏ hàng</p>#}
-{#                    </c:if>#}
-{#                    <div class="cartCoupon">#}
-{#                        <ul>#}
-{#                            <li style="font-size: 16px;font-weight: bold;">Mã giảm giá:</li>#}
-{#                            <li style="margin-left: 20px;margin-right: 20px;">#}
-{#                                <div class="accInput">#}
-{#                                    <input type="text" class="inputText input-code" placeholder="Code"#}
-{#                                           style="background: transparent;width: 260px;font-size: 16px;">#}
-{#                                </div>#}
-{#                            </li>#}
-{#                            <li>#}
-{#                                <a href="#" class="btn-formTax2">#}
-{#                                    <div>Áp dụng</div>#}
-{#                                </a>#}
-{#                            </li>#}
-{#                        </ul>#}
-{#                    </div>#}
-{#                </div>#}
-{#                <div class="col-md-4">#}
-{#                    <div class="form-tax">#}
-{#                        <h4>Hóa đơn</h4>#}
-{#                        <div class="lineAbout" style="width: 100%;height: 1px;    margin-top: 20px;"></div>#}
-{#                        <div class="box-formTax-count">#}
-{#                            <div class="row">#}
-{#                                <div class="col-md-6">Tổng tiền:</div>#}
-{#                                <div class="col-md-6 totalPrice" style="text-align: right;">$‭658‬.00</div>#}
-{#                            </div>#}
-{#                            <div class="row">#}
-{#                                <div class="col-md-6">VAT:</div>#}
-{#                                <div class="col-md-6 vat-price" style="text-align: right;">$20.00</div>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                        <div class="lineAbout" style="width: 100%;height: 1px;    margin-top: 20px;"></div>#}
-{##}
-{#                        <div class="box-formTax-total">#}
-{#                            <div class="row">#}
-{#                                <div class="col-md-6" style="font-size: 18px;font-weight: bold">Thành tiền</div>#}
-{#                                <div class="col-md-6 last-price"#}
-{#                                     style="text-align: right;font-size: 18px;font-weight: bold">#}
-{#                                    $670.00#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                        <a href="/check-out" class="btn-formTax hieuung">#}
-{#                            <div>Tiến hành đặt hàng</div>#}
-{#                        </a>#}
-{#                    </div>#}
-{#                </div>#}
-{##}
-{#            </div>#}
-{#        </div>#}
-{#    </section>#}
-{#{% endblock %}#}
+{% extends 'main.html' %}
+{% block content %}
+    <section class="myAcc myAcc2">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="row" style="display:flex;">
+                        <div style="width: 100px">
+                        </div>
+                        <div class="cartCoupon">
+                            <ul>
+                                <li style="font-size: 16px;font-weight: bold;">Coupon code</li>
+                                <li style="margin-left: 20px;margin-right: 20px;">
+                                    <div class="accInput">
+                                        <input type="text" class="inputText input-code" placeholder="Code"
+                                               style="background: transparent;width: 260px;font-size: 16px;">
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="#" class="btn-formTax2">
+                                        <div>Apply</div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row row-cart" style="margin-bottom: 30px;">
+                        <div class="col-md-1" style="text-align: center;">
+                        </div>
+                        <div class=" col-md-2">
+                        </div>
+                        <div class="col-md-2" style="text-align: center;    font-size: 16px;">
+                            Name product
+                        </div>
+                        <div class="col-md-2" style="text-align: right;font-size: 16px;">
+                            Price
+                        </div>
+                        <div class="col-md-3" style="text-align: center;    font-size: 16px;">
+                            Quantity
+                        </div>
+                        <div class="col-md-2" style="text-align: right;    font-size: 16px;">Total price</div>
+                    </div>
+                    {% if not cart_items %}
+                        <p style="    font-size: 16px;">Chưa có sản phẩm nào được thêm vào giỏ hàng</p>
+                    {% else %}
+                        {% for cart_item in cart_items %}
+                            <div class="row row-cart" style="margin-bottom: 15px;" data-value="{{ cart_item.id }}">
+                                <div class="col-md-1" style="text-align: center;padding-top: 58px;">
+                                    <div class="delete-cart" data-id="{{ cart_item.item.id }}">
+                                        <i class="la la-close" style="font-size: 20px;"></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <img src="http://localhost:8000/image/download/{{ cart_item.item.image }}"
+                                         alt="product"
+                                         class="img-responsive img-product">
+                                </div>
+                                <div class="col-md-2" style="text-align: center;padding-top: 58px;">
+                                    {{ cart_item.item.name }}
+                                </div>
+                                <div class="col-md-2 price-format" style="text-align: right;padding-top: 58px;">
+                                    {{ cart_item.item.price }}
+                                </div>
+                                <div class="col-md-3" style="text-align: right;padding-top: 42px;">
+                                    <div class="cart-product-two shopping-cart-quantity cartConver">
+                                        <div class="pd-c-quantity quantity add-card add-card-product">
+                                            <input class="quantity-item" type="number" min="1" max="100" step="1"
+                                                   value="{{ cart_item.quantity }}"
+                                                   style="border-bottom: 1px solid rgb(193, 155, 118);padding-bottom: 10px;">
+                                            <div class="quantity-button quantity-down">
+                                                <span><i class="la la-minus"></i></span>
+                                            </div>
+                                            <div class="quantity-button quantity-up">
+                                                <span><i class="la la-plus"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 cart-price price-format"
+                                     data-price="{{ cart_item.total_price }}"
+                                     style="text-align: right;padding-top: 58px;">{{ cart_item.total_price }}
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+                <div class="col-md-4">
+                    <div class="form-tax">
+                        <h4>Hóa đơn</h4>
+                        <div class="lineAbout" style="width: 100%;height: 1px;    margin-top: 20px;"></div>
+                        <div class="box-formTax-count">
+                            <div class="row">
+                                <div class="col-md-6">Tổng tiền:</div>
+                                <div class="col-md-6 totalPrice" style="text-align: right;">$‭658‬.00</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">VAT:</div>
+                                <div class="col-md-6 vat-price" style="text-align: right;">$20.00</div>
+                            </div>
+                        </div>
+                        <div class="lineAbout" style="width: 100%;height: 1px;    margin-top: 20px;"></div>
+
+                        <div class="box-formTax-total">
+                            <div class="row">
+                                <div class="col-md-6" style="font-size: 18px;font-weight: bold">Thành tiền</div>
+                                <div class="col-md-6 last-price"
+                                     style="text-align: right;font-size: 18px;font-weight: bold">
+                                    $670.00
+                                </div>
+                            </div>
+                        </div>
+                        <a href="/check-out" class="btn-formTax hieuung">
+                            <div>Tiến hành đặt hàng</div>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <script src="../static/custom.js"></script>
+    <script>
+        // xóa sản phẩm trong giỏ hàng
+        $('.delete-cart').click(function () {
+            Swal.fire({
+                title: 'Do you want to remove that item from cart?',
+                showDenyButton: true,
+                showCancelButton: false,
+                confirmButtonText: 'Yes',
+                denyButtonText: `No`,
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    let id = $(this).attr("data-id");
+                    let a = $(this).closest("div.row-cart");
+                    $.ajax(
+                        {
+                            url: '/api/cart/remove',
+                            type: 'DELETE',
+                            headers: {"X-CSRFToken": '{{ csrf_token }}'},
+                            data:
+                                {
+                                    id: id
+                                },
+                            success: function (value) {
+                                Swal.fire({
+                                    position: 'center',
+                                    icon: 'success',
+                                    title: 'Remove from cart success',
+                                    showConfirmButton: true,
+                                    timer: 2000
+                                })
+                                a.remove();
+                                $('#cart-parent').find("div").html("<span>" + value + "</span>");
+                                if (value === 0)
+                                    $('#cart-parent').find("div").remove();
+                                totalPrice();
+                            }
+                        }
+                    )
+                }
+            })
+
+        })
+
+        // tính tổng tiền
+        function totalPrice() {
+            let totalPrice = 0;
+            $('.cart-price').each(function () {
+                let priceString = $(this).text();
+                totalPrice += toNumber(priceString);
+            })
+            let vat = totalPrice / 10;
+            let lastTotalPrice = totalPrice + vat;
+            $('.form-tax').find("div.totalPrice").html(toString(totalPrice));
+            $('.form-tax').find("div.vat-price").html(toString(vat));
+            $('.form-tax').find("div.last-price").html(toString(lastTotalPrice));
+        }
+
+        totalPrice();
+
+
+        $('.quantity-item').change(function () {
+            let quantity = $(this).val();
+            let id = $(this).closest("div.row-cart").attr("data-value");
+            let price = $(this).closest("div.row-cart").find("div.cart-price");
+            $.ajax(
+                {
+                    url: '/api/cart/update',
+                    type: 'PUT',
+                    headers: {"X-CSRFToken": '{{ csrf_token }}'},
+                    data:
+                        {
+                            id: id,
+                            quantity: quantity
+                        },
+                    success: function (value) {
+                        price.html(toString(value));
+                        totalPrice();
+                    }
+                }
+            )
+        })
+    </script>
+{% endblock %}
