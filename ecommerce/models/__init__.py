@@ -14,3 +14,4 @@ from .order import Order
 from .payment import Payment
 from .shipment import Shipment
 from .shippment_unit import ShipmentUnit
+from .comment import Comment

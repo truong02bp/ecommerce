@@ -32,7 +32,8 @@ def laptop_detail(request, id=None):
     laptop_service = LaptopService.get_instance()
     laptop = laptop_service.find_by_id(id)
     laptops = laptop_service.find_limit(4)
-    context = {'laptop': laptop, 'laptops': laptops}
+    comments = laptop.item.comment_set
+    context = {'laptop': laptop, 'laptops': laptops, 'comments': comments}
     return render(request, 'laptop.html', context)
 
 
@@ -54,7 +55,6 @@ def laptop_page(request):
         model['producer'] = producer
     if name is not None:
         model['name'] = name
-    print(total_page)
     context = {'laptops': laptops, 'producers': producers, 'most_products': most_products, 'model': model}
     return render(request, 'item.html', context)
 

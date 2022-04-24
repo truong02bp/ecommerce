@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import User, Laptop, Category, Item, Producer, Publisher, Author, Book
+from .models import User, Laptop, Category, Item, Producer, Publisher, Author, Book, Comment
 
 
 class CategoryAdmin(admin.ModelAdmin):
@@ -67,3 +67,11 @@ class UserAdmin(admin.ModelAdmin):
 
 
 admin.site.register(User, UserAdmin)
+
+
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ['id', 'date', 'image', 'user', 'item']
+    pass
+
+
+admin.site.register(Comment, CommentAdmin)

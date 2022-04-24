@@ -58,7 +58,8 @@
                                             style="font-size: 20px;position: relative;top: 2px;"></i></button>
                                 </li>
                                 <li>
-                                    <button class="button btn-hover btn-details cart-button" data-id="{{ laptop.item.id }}"
+                                    <button class="button btn-hover btn-details cart-button"
+                                            data-id="{{ laptop.item.id }}"
                                             style="margin-top: 15px; margin-left: 20px">
                                         Add to cart
                                         <i class="la la-shopping-cart"
@@ -97,10 +98,67 @@
             </div>
         </div>
     </section>
+    <div class="text-center">
+        <h3>Comments</h3>
+    </div>
+    <div class="container mt-5">
+        <div class="d-flex justify-content-center row">
+            <div class="col-md-8">
+                <div class="d-flex flex-column comment-section">
+                    {% for comment in comments %}
+                        <div class="bg-white p-2">
+                            <div class="d-flex flex-row user-info"><img class="rounded-circle"
+                                                                        src="https://i.imgur.com/RpzrMR2.jpg"
+                                                                        width="40">
+                                <div class="d-flex flex-column justify-content-start ml-2"><span
+                                        class="d-block font-weight-bold name">Marry Andrews</span><span
+                                        class="date text-black-50">Shared publicly - Jan 2020</span></div>
+                            </div>
+                            <div class="mt-2">
+                                <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                    eiusmod
+                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                    nostrud
+                                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                            </div>
+                        </div>
+                        <div class="bg-white" style="display: flex">
+                            <div class="like p-2 cursor"><i class="fa fa-thumbs-o-up"></i><span class="ml-1">Like</span>
+                            </div>
+                            <div style="width: 30px"></div>
+                            <div class="like p-2 cursor"><i class="fa fa-commenting-o"></i><span
+                                    class="ml-1">Comment</span>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    <div style="height: 40px"></div>
+                    <div class="bg-light p-2">
+                        <div class="d-flex flex-row align-items-start">
+                            {% if user.is_authenticated and user.image %}
+                                <img class="rounded-circle"
+                                     src="http://localhost:8000/image/download/{{ user.image }}"
+                                     width="40">
+                            {% else %}
+                                <img class="rounded-circle"
+                                     src="../static/images/anonymous.png"
+                                     width="40">
+                            {% endif %}
+
+                            <textarea class="form-control ml-1 shadow-none textarea"></textarea></div>
+                        <div class="mt-2 text-right">
+                            <button class="btn btn-primary btn-sm shadow-none" type="button">Post comment</button>
+                            <button class="btn btn-outline-primary btn-sm ml-1 shadow-none" type="button">Cancel
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <section class="page-shop-slidebar wow animate__backInUp" data-wow-duration="0.75s" style="padding-top: 60px;">
         <div class="container">
             <div class="text-center">
-                <h3>Một số sản phẩm nổi bật</h3>
+                <h3>Most sell product</h3>
             </div>
             <div class="row">
                 {% for laptop in laptops %}

@@ -36,8 +36,6 @@ class CartService:
 
     def remove_from_cart(self, user_id, item_id):
         cart = Cart.objects.filter(user_id=user_id).get()
-        print(cart.id)
-        print(item_id)
         CartItem.objects.filter(cart_id=cart.id, item_id=item_id).delete()
         return cart.cartitem_set.count()
 
@@ -48,5 +46,7 @@ class CartService:
         return int(quantity) * cart_item.item.price
 
     def count_item(self, user_id):
-        cart = Cart.objects.filter(user_id=user_id).get()
-        return cart.cartitem_set.count()
+        cart = Cart.objects.filter(user_id=user_id)
+        if not cart:
+            return 0
+        return cart.get().cartitem_set.count()

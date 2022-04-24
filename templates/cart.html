@@ -25,8 +25,6 @@
                         </div>
                     </div>
                     <div class="row row-cart" style="margin-bottom: 30px;">
-                        <div class="col-md-1" style="text-align: center;">
-                        </div>
                         <div class=" col-md-2">
                         </div>
                         <div class="col-md-2" style="text-align: center;    font-size: 16px;">
@@ -39,17 +37,14 @@
                             Quantity
                         </div>
                         <div class="col-md-2" style="text-align: right;    font-size: 16px;">Total price</div>
+                        <div class="col-md-1" style="text-align: center;">
+                        </div>
                     </div>
                     {% if not cart_items %}
                         <p style="    font-size: 16px;">Chưa có sản phẩm nào được thêm vào giỏ hàng</p>
                     {% else %}
                         {% for cart_item in cart_items %}
                             <div class="row row-cart" style="margin-bottom: 15px;" data-value="{{ cart_item.id }}">
-                                <div class="col-md-1" style="text-align: center;padding-top: 58px;">
-                                    <div class="delete-cart" data-id="{{ cart_item.item.id }}">
-                                        <i class="la la-close" style="font-size: 20px;"></i>
-                                    </div>
-                                </div>
                                 <div class="col-md-2">
                                     <img src="http://localhost:8000/image/download/{{ cart_item.item.image }}"
                                          alt="product"
@@ -78,7 +73,15 @@
                                 </div>
                                 <div class="col-md-2 cart-price price-format"
                                      data-price="{{ cart_item.total_price }}"
+                                     id="{{ cart_item.item.id }}"
                                      style="text-align: right;padding-top: 58px;">{{ cart_item.total_price }}
+                                </div>
+                                <div class="col-md-1" style="text-align: center;padding-top: 58px; display: flex">
+                                    <input class="product_check_box" type="checkbox" id="checkbox_{{ cart_item.item.id }}"/>
+                                    <div style="width: 20px"></div>
+                                    <div class="delete-cart" data-id="{{ cart_item.item.id }}">
+                                        <i class="la la-close" style="font-size: 20px;"></i>
+                                    </div>
                                 </div>
                             </div>
                         {% endfor %}
@@ -166,10 +169,14 @@
         function totalPrice() {
             let totalPrice = 0;
             $('.cart-price').each(function () {
-                let priceString = $(this).text();
-                totalPrice += toNumber(priceString);
+                let id = this.id
+                let checkboxId = '#checkbox_' + id
+                if ($(checkboxId).is(":checked")) {
+                    let priceString = $(this).text();
+                    totalPrice += toNumber(priceString);
+                }
             })
-            let vat = totalPrice / 10;
+            let vat = 0;
             let lastTotalPrice = totalPrice + vat;
             $('.form-tax').find("div.totalPrice").html(toString(totalPrice));
             $('.form-tax').find("div.vat-price").html(toString(vat));
@@ -178,6 +185,9 @@
 
         totalPrice();
 
+        $('.product_check_box').change(function () {
+            totalPrice()
+        })
 
         $('.quantity-item').change(function () {
             let quantity = $(this).val();
