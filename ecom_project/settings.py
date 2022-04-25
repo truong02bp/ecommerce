@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     # my apps,
     'ecommerce.apps.EcommerceConfig',
+    'account.apps.AccountConfig',
 ]
 
 MIDDLEWARE = [
@@ -106,7 +107,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-AUTH_USER_MODEL = 'ecommerce.User'
+AUTH_USER_MODEL = 'account.User'
 
 
 # Internationalization

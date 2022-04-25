@@ -8,22 +8,22 @@
             <h1>Sign up</h1>
             <div class="content">
                 <div class="input-field">
-                    <input type="text" placeholder="name" autocomplete="nope">
+                    <input type="text" placeholder="name" name="name" autocomplete="nope">
                 </div>
                 <div class="input-field">
-                    <input type="email" placeholder="Email" autocomplete="nope">
+                    <input type="email" placeholder="Email" name="email" autocomplete="nope">
                 </div>
                 <div class="input-field">
-                    <input type="text" placeholder="phone" autocomplete="nope">
+                    <input type="text" placeholder="phone" name="phone" autocomplete="nope">
                 </div>
                 <div class="input-field">
-                    <input type="text" placeholder="address" autocomplete="nope">
+                    <input type="text" placeholder="address" name="address" autocomplete="nope">
                 </div>
                 <div class="input-field">
-                    <input type="text" placeholder="username" autocomplete="nope">
+                    <input type="text" placeholder="username" name="username" autocomplete="nope">
                 </div>
                 <div class="input-field">
-                    <input type="password" placeholder="Password" autocomplete="new-password">
+                    <input type="password" placeholder="Password" name="password" autocomplete="new-password">
                 </div>
                 <a href="{% url 'login' %}">Did you have a account? Sign in now</a>
             </div>
@@ -59,7 +59,12 @@
                         window.location.href = "/login";
                     },
                     error: function (result) {
-                        window.location.href = "/register?message=usernameIsUsed";
+                        Swal.fire(
+                            {
+                                icon: 'error',
+                                title: 'Register failure...'
+                            }
+                        )
                     }
                 }
             )

@@ -62,13 +62,6 @@ class BookAdmin(admin.ModelAdmin):
 admin.site.register(Book, BookAdmin)
 
 
-class UserAdmin(admin.ModelAdmin):
-    pass
-
-
-admin.site.register(User, UserAdmin)
-
-
 class CommentAdmin(admin.ModelAdmin):
     list_display = ['id', 'date', 'image', 'user', 'item']
     pass

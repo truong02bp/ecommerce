@@ -1,13 +1,9 @@
 import math
-from pyexpat.errors import messages
 
-from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.models import AnonymousUser
 from django.shortcuts import render, redirect
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
-from ecommerce.serializers import UserRegisterSerializer, UserLoginSerializer
 from ecommerce.services.book_service import BookService
 from ecommerce.services.cart_service import CartService
 from ecommerce.services.laptop_service import LaptopService
@@ -73,17 +69,6 @@ def book_page(request):
     context = {'books': books}
     return render(request, 'laptop.html', context)
 
-
-def login_page(request):
-    context = {}
-    return render(request, 'login.html', context)
-
-
-def register(request):
-    context = {}
-    return render(request, 'register.html', context)
-
-
 def cart(request):
     user = request.user
     if not user.is_authenticated:
@@ -92,31 +77,6 @@ def cart(request):
     cart = cart_service.find_by_user_id(user.id)
     context = {'cart': cart, 'cart_items': cart.cartitem_set.all(), 'quantity_item': cart.cartitem_set.count()}
     return render(request, 'cart.html', context)
-
-
-@api_view(['POST'])
-def create_user(request):
-    serializer = UserRegisterSerializer(data=request.data)
-    if serializer.is_valid():
-        instance = serializer.save()
-        instance.set_password(instance.password)
-        instance.save()
-    return Response(serializer.data)
-
-
-def check_login(request):
-    username = request.POST['username']
-    password = request.POST['password']
-    user = authenticate(request, username=username, password=password)
-    if user is not None:
-        login(request, user)
-    return redirect('home')
-
-
-def logout_request(request):
-    logout(request)
-    return redirect('home')
-
 
 @api_view(['POST'])
 def add_to_cart(request):
