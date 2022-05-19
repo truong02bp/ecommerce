@@ -1,3 +1,4 @@
+
 from django.db import models
 
 from ecommerce.models import User, Item
@@ -10,3 +11,4 @@ class Comment(models.Model):
     reply_to = models.ForeignKey("self", on_delete=models.CASCADE, null=True, blank=True)
     date = models.DateTimeField(auto_created=True, null=True, blank=True)
     image = models.ImageField(upload_to='uploads/images/', null=True, blank=True)
+

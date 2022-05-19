@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import User, Laptop, Category, Item, Producer, Publisher, Author, Book, Comment
+from .models import Laptop, Category, Item, Producer, Publisher, Author, Book, Comment, Information, ShipmentUnit, Order
 
 
 class CategoryAdmin(admin.ModelAdmin):
@@ -68,3 +68,26 @@ class CommentAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Comment, CommentAdmin)
+
+
+class InformationAdmin(admin.ModelAdmin):
+    list_display = ['id', 'address', 'phone', 'user', 'name']
+    pass
+
+
+admin.site.register(Information, InformationAdmin)
+
+
+class ShipmentUnitAdmin(admin.ModelAdmin):
+    list_display = ['id', 'name', 'status']
+    pass
+
+
+admin.site.register(ShipmentUnit, ShipmentUnitAdmin)
+
+
+class OrderAdmin(admin.ModelAdmin):
+    pass
+
+
+admin.site.register(Order, OrderAdmin)

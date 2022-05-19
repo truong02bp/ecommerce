@@ -15,7 +15,13 @@ class CartService:
         return CartService.__instance
 
     def find_by_user_id(self, user_id):
-        return Cart.objects.filter(user_id=user_id).get()
+        cart = Cart.objects.filter(user_id=user_id)
+        if not cart:
+            cart = Cart()
+            cart.user_id = user_id
+            cart.total_money = 0
+            return cart.save()
+        return cart.get()
 
     def add_to_cart(self, user_id, item_id):
         cart = Cart.objects.filter(user_id=user_id).get()

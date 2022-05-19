@@ -4,24 +4,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
-                    <div class="row" style="display:flex;">
+                    <div class="row" style="display:flex">
                         <div style="width: 100px">
-                        </div>
-                        <div class="cartCoupon">
-                            <ul>
-                                <li style="font-size: 16px;font-weight: bold;">Coupon code</li>
-                                <li style="margin-left: 20px;margin-right: 20px;">
-                                    <div class="accInput">
-                                        <input type="text" class="inputText input-code" placeholder="Code"
-                                               style="background: transparent;width: 260px;font-size: 16px;">
-                                    </div>
-                                </li>
-                                <li>
-                                    <a href="#" class="btn-formTax2">
-                                        <div>Apply</div>
-                                    </a>
-                                </li>
-                            </ul>
                         </div>
                     </div>
                     <div class="row row-cart" style="margin-bottom: 30px;">
@@ -73,11 +57,12 @@
                                 </div>
                                 <div class="col-md-2 cart-price price-format"
                                      data-price="{{ cart_item.total_price }}"
-                                     id="{{ cart_item.item.id }}"
+                                     id="{{ cart_item.id }}"
                                      style="text-align: right;padding-top: 58px;">{{ cart_item.total_price }}
                                 </div>
                                 <div class="col-md-1" style="text-align: center;padding-top: 58px; display: flex">
-                                    <input class="product_check_box" type="checkbox" id="checkbox_{{ cart_item.item.id }}"/>
+                                    <input class="product_check_box" type="checkbox"
+                                           id="checkbox_{{ cart_item.id }}"/>
                                     <div style="width: 20px"></div>
                                     <div class="delete-cart" data-id="{{ cart_item.item.id }}">
                                         <i class="la la-close" style="font-size: 20px;"></i>
@@ -112,9 +97,9 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="/check-out" class="btn-formTax hieuung">
-                            <div>Tiến hành đặt hàng</div>
-                        </a>
+                        <div class="btn-formTax hieuung">
+                            <div>Check out</div>
+                        </div>
                     </div>
                 </div>
 
@@ -209,6 +194,24 @@
                     }
                 }
             )
+        })
+        $('.btn-formTax').click(function () {
+            let ids = []
+            $('.cart-price').each(function () {
+                let id = this.id
+                let checkboxId = '#checkbox_' + id
+                if ($(checkboxId).is(":checked")) {
+                    ids.push(this.id)
+                }
+            })
+            if (ids.length !== 0) {
+                window.location.href = "/check-out?ids=" + ids
+            } else {
+                Swal.fire(
+                    'Product empty?',
+                    'Please choose the product to checkout',
+                )
+            }
         })
     </script>
 {% endblock %}
